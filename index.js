@@ -187,12 +187,12 @@ li[i].parentElement.remove();
   var storedList =  JSON.parse( localStorage.getItem('output'));
 
 
-//  for(let i =0; i< storedList.length; i++){
-//     let storage =storedList[i];
-//     console.log(li);
-//     if(storage.name.classList.contains('opacity')){
-//     storedList.pop(i);
-//    localStorage.setItem('output',JSON.stringify( storedList))
-//     }
-//   }
+ for(let i =0; i< storedList.length; i++){
+    let storage =storedList[i];
+    console.log(li);
+    if(storage.name.classList.contains('opacity')){
+    storedList.pop(i);
+   localStorage.setItem('output',JSON.stringify( storedList))
+    }
+  }
 }
