@@ -10,6 +10,7 @@
     height:100vh
 }
 
+
 .morning{
 padding: 2rem 3rem;
 }
@@ -61,3 +62,8 @@ input[type=radio]:checked{
     border:solid 3px blue;
     background: yellow;
 }
+/* for daytime */
+.dark{
+    background-color: hsl(235, 21%, 11%);
+}
+/* for night */
