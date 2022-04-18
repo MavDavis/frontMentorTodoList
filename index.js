@@ -25,7 +25,7 @@ if(localStorage.getItem('output') === null ){
 
  let output = [];
  output.push(object);
- localStorage.setItem('output',JSON.stringify(output) )
+ localStorage.setItem('output', JSON.stringify(output) )
 ;
 document.getElementById('emptylist').style.display = 'flex'
 }
@@ -101,7 +101,7 @@ function fetchList(e){
       `;
    removefromStorage(name)
     }
-doners()
+checkDone()
 }
 function removefromStorage(name){
 let del = document.getElementsByClassName('delete');
@@ -134,7 +134,7 @@ for(var i = 0; i<del.length; i++){
 
 }}
 
- function doners(){
+ function checkDone(){
  let radio =document.getElementsByClassName('radio');
 for(var i=0; i<radio.length; i++){
 
@@ -181,18 +181,21 @@ function clearAllCompleted(e){
   for(var i= 0; i< li.length; i++){
   if(li[i].classList.contains('opacity')){
 li[i].parentElement.remove();
-// localStorage.setItem('output',JSON.stringify(li) )
+
   }
 }
   var storedList =  JSON.parse( localStorage.getItem('output'));
 
 
  for(let i =0; i< storedList.length; i++){
-    let storage =storedList[i];
-    console.log(li);
-    if(storage.name.classList.contains('opacity')){
+  let storage =storedList[i];
+     console.log(li);
+     if(storage.name.classList.contains('opacity')){
     storedList.pop(i);
-   localStorage.setItem('output',JSON.stringify( storedList))
+    localStorage.setItem('output',JSON.stringify( storedList))
     }
-  }
+   }
 }
+
+
+
