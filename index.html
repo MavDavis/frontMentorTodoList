@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTodoList</title>
+ <link rel="stylesheet" href="style.css">
+ <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  -->
+    
+</head>
+
+<body onload=" fetchList() ">
+    <div class="container morning">
+    <form id="form" action="">
+    <h2>Todo List</h2><i class="fa fa-times" aria-hidden="true"></i>
+    <p>Be productive today. Plan your day!!</p>
+    <div class="input1">
+    <input type="text"placeholder="Create a new todo..." id="todoItem" class="todo-item">
+    </div>
+    
+    <button id="submit"type="submit" class="add-input">Add to list</button>
+    </form>
+
+<div class="list-items" id="list-items">
+    <ul class="ul" id="ul">
+
+
+    </ul>
+   
+    <div class="rows">
+        <div class="row">
+            <h5 id = emptylist>Tasks list is empty</h5>
+        </div>
+        <div class="row">
+            <p id="completed">Clear completed</p>
+            <div id="remlist"></div>
+        </div>
+       
+        <div class="row">
+       <div class="opacity" id="all">All</div> 
+  
+       <div  class="opacity"id="notDone">Active</div> 
+       <div  class="opacity" id="done">Completed</div> 
+      
+    </div></div>
+</div></div>
+<script src="index.js"></script>
+</body>
+</html>
