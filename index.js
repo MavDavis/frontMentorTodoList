@@ -4,14 +4,20 @@ let buttonSubmit = document.getElementById('submit');
 let all =document.getElementById('all');
 let done = document.getElementById('done');
 let notDone = document.getElementById('notDone');
-let clearCompleted = document.getElementById('completed')
+let clearCompleted = document.getElementById('completed');
+let container = document.querySelector('.container');
+let mode =document.getElementById('mode');
+let modeFuse = document.getElementById('mode-fuse');
+
+
 all.addEventListener('click', showall);
 done.addEventListener('click', showDone);
 notDone.addEventListener('click', showNotDone);
 clearCompleted.addEventListener('click', clearAllCompleted);
 inputTag.addEventListener("keyup",
 addToUi);
-form.addEventListener('submit', alsoaddToUi)
+form.addEventListener('submit', alsoaddToUi);
+modeFuse.addEventListener('click', switchMode)
 
 
 function alsoaddToUi(){
@@ -78,7 +84,7 @@ fetchList()
 
 function fetchList(e){
   let output= JSON.parse( localStorage.getItem('output'));
-  all.classList.add('full-opacity');
+  all.classList.add('blue')
   let remlist = document.getElementById('remlist');
   
   let text ='';
@@ -92,9 +98,10 @@ function fetchList(e){
       ul.innerHTML+=`
       <div class="list" >
       <li class="list-tag">
-    <input class = "radio" type="radio" onclick="">
-    <p>${li}</p>
-    <button class="delete" href="#">X</button>
+    <p><input class = "radio" type="radio" onclick=""> ${li}</p>
+    <button class="delete" href="#">
+    <img src ="icon-cross.svg" alt ="icon-times" class="times">
+    </button>
     
     </li>
       </div>
@@ -113,7 +120,7 @@ for(var i = 0; i<del.length; i++){
     e.preventDefault()
     if(confirm('do you wish to delete?')){
       
-      let li = (e.target.parentElement.remove());
+      let li = (e.target.parentElement.parentElement.parentElement.remove());
     
       var storedList =  JSON.parse( localStorage.getItem('output'));
       for(var i =0; i< storedList.length; i++){
@@ -140,38 +147,44 @@ for(var i=0; i<radio.length; i++){
 
   
 radio[i].addEventListener('click', function(e){
-  e.target.parentElement.classList.toggle('opacity')
+  e.target.parentElement.parentElement.classList.toggle('opacity')
 })
 }
 
  } 
-function showall(){
-
+function showall(e){
+  e.target.classList.add('blue');
+  notDone.classList.remove('blue');
+  done.classList.remove('blue');
 let li = document.querySelectorAll('li');
 for(var i=0; i<li.length; i++){
-  li[i].style.display='flex'
+  li[i].parentElement.style.display='block'
 }
 }
-function showDone(){
-
+function showDone(e){
+  e.target.classList.add('blue');
+  all.classList.remove('blue');
+  notDone.classList.remove('blue');
   let li = document.querySelectorAll('li');
   for(var i=0; i<li.length; i++){
     if(li[i].classList.contains('opacity')){
-      li[i].style.display='flex'
+      li[i].parentElement.style.display='block'
     }else{
-      li[i].style.display='none'
+      li[i].parentElement.style.display='none'
 
     }
   } 
 }
-function showNotDone(){
- 
+function showNotDone(e){
+  e.target.classList.add('blue');
+  all.classList.remove('blue');
+  done.classList.remove('blue');
   let li = document.querySelectorAll('li');
   for(var i=0; i<li.length; i++){
     if(li[i].classList.contains('opacity')){
-      li[i].style.display='none'
+      li[i].parentElement.style.display='none'
     }else{
-      li[i].style.display='flex'
+      li[i].parentElement.style.display='block'
 
     }
   } 
@@ -197,5 +210,12 @@ li[i].parentElement.remove();
    }
 }
 
-
+function switchMode(){
+  if(container.classList.contains('light-bg')){
+    container.classList.remove('light-bg');
+    container.classList.add('dark.bg');
+  }else{
+    container.classList.add('light-bg')
+  }
+}
 

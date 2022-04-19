@@ -1,69 +1,240 @@
 *{ font-family: sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     line-height: 1.7rem;
 }
+body{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+}
+.container{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
-.morning{
-    background: #ccc;
-    height:100vh
 }
 
-
-.morning{
-padding: 2rem 3rem;
+h1{
+    font-family: sans-serif;
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: .5rem;
 }
-
-.ul li{
+form{
+display: flex;
+flex-direction: column;
+width: 100%;
+height: 100%;
+gap: 4rem;
+padding: 3rem 3rem 6rem 3rem;
+}
+.heading{
     display: flex;
     justify-content: space-between;
-    list-style: none;
-    margin-bottom: 3rem;
 }
-.morning .ul{
-    margin: 4em auto;
-}
-.morning .ul li .delete{
-    background: red;
-    color: #fff;
-    font-size: .7rem;
-    width: 5rem;
-    border:none;
+.input1{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
-    padding: auto 0 0 15px ;
-    margin-bottom: 2px;
+    padding: .5rem;
+}
+.input1  .todo-item{
+    width: 90%;
+   background: #fff;
+   padding-left: 1rem;
+   border-radius: 5px;
+    border: none;
+}
+.favicon{
+   margin-right: 1rem;
+}
+.input1 input[type=text]:focus{
+    border: none;
+    outline: none;
+    
+}
+
+.opacity{
+    opacity: 0.5;
+    text-decoration: line-through;
     cursor: pointer;
+}
+.blue{
+    color: #fff;
+    cursor: pointer;
+}
+.full-opacity{
+    opacity: 1; 
+}
+
+.dark{
+    z-index: 15;
+    box-shadow: 0 3px 10px rgb(0 0 0/ 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    top: 2rem;
+    left:20%;
+    width: 60%;
+    border-radius: 10px;
+}
+.ul .list {
+width: 100%;
+height: 3rem;
+border-bottom: 1px solid #ccc;
+box-sizing: border-box;
+list-style: none;
+margin-bottom: .6rem;
+padding: 1rem;
+}
+.ul .list .list-tag{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.delete{
+border:none;
+cursor: pointer;
 }
 .delete:hover{
     opacity: 0.7;
 }
 .row{
+    padding: 2rem 1rem;
     display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+}
+.blue-rows{
+    position: relative;
+    margin-top: 2em;
+    box-shadow: 0 3px 10px rgb(0 0 0/ 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    bottom: 10%;
+    left: 25%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 #completed{
     justify-content: flex-end;
     width: 60%;
 }
+input[type=radio]:checked{
+    /* -webkit-appearance: none; */
+   background-image: url();
+}
 
-.opacity{
-    opacity: 0.5;
-    cursor: pointer;
+
+/* for night */
+#main-dark{
+    z-index: 5;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: hsl(235, 21%, 11%);
 }
-.full-opacity{
-    opacity: 1; 
-}
-li{
-    background: #000;
+#main-dark .blue-rows{
     color: #fff;
 }
-input[type=radio]:checked{
-    border:solid 3px blue;
-    background: yellow;
+
+ .blue{
+    color: blue;
+    cursor: pointer;
 }
-/* for daytime */
-.dark{
+#main-dark .dark{
+    background: hsl(235, 21%, 11%);
+    color: #fff;
+}
+#main-dark .dark .ul .list .list-tag .delete {
+    background: hsl(235, 21%, 11%);
+}
+.dark .ul .list .list-tag .delete .times{
+    background-color: hsl(235, 21%, 11%);;
+    color: #000;
+}
+.dark-bg{
+    background-image: url(bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+ background-position: center;
+}
+.dark-bg .heading h1{
+    color: #fff;
+}
+.dark-bg .heading #mode-fuse{
+    background-image: url(icon-moon.svg);
+   padding-bottom: 1em;
+   height: 30px;
+   width: 30px;
+   cursor: pointer;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+    z-index: 4;
+}
+.dark-bg form .input1{
     background-color: hsl(235, 21%, 11%);
 }
-/* for night */
+/* for day */
+.light-bg{
+    background-image: url(bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.light-bg form .input1{
+    background-color: #fff;
+}
+.light-bg form .input1 img{
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+#main-light{
+color: hsl(235, 21%, 11%);
+background-color: #fff;
+}
+#main-light .dark{
+    color: hsl(235, 21%, 11%);
+    background: #fff;
+}
+#main-light .blue-rows{
+    color: hsl(235, 21%, 11%) ;
+}
+#main-light .dark .ul .list .list-tag .delete .times{
+    color: #fff;
+    background: #fff;
+}
+#main-light .dark .ul .list .list-tag .delete{
+    background: #fff;
+    color: #fff;
+}
+#main-light .blue-rows{
+    color: hsl(235, 21%, 11%);
+}
+.light-bg .heading #mode-fuse{
+    background-image: url(icon-moon.svg);
+   padding-bottom: 1em;
+   height: 30px;
+   width: 30px;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+    z-index: 4;
+    cursor: pointer;
+}

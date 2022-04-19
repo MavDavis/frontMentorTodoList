@@ -11,40 +11,48 @@
 </head>
 
 <body onload=" fetchList() ">
-    <div class="bg-img"></div>
-    <div class="container dark">
+    <div class="container dark-bg">
     <form id="form" action="">
-   
+   <div class="heading">
+       <h1>TODO</h1>
+       <div class="mode" id="mode-fuse">
+          
+       </div>
+   </div>
     <div class="input1">
+        <img class="favicon" src="favicon-32x32.png" alt="favicon-32x32">
     <input type="text"placeholder="Create a new todo..." id="todoItem" class="todo-item">
     </div>
     
-    <button id ="submit"type="submit" class="add-input">Add to list</button>
+    <!-- <button id ="submit"type="submit" class="add-input">Add to list</button> -->
     </form>
-
-<div class="list-items" id="list-items">
+</div>
+<div id="main-light mode">
+<div class="dark" id="list-items">
     <ul class="ul" id="ul">
-
-
-    </ul>
-   
+    </ul>  
     <div class="rows">
-        <div class="row">
+        <!-- <div class="row">
             <h5 id = emptylist>Tasks list is empty</h5>
-        </div>
+        </div> -->
         <div class="row">
             <p id="completed">Clear completed</p>
-            <div id="remlist"></div>
+            <div id="remlist">
+            </div>
         </div>
        
-        <div class="row">
-       <div class="opacity" id="all">All</div> 
-  
-       <div  class="opacity"id="notDone">Active</div> 
-       <div  class="opacity" id="done">Completed</div> 
-      
-    </div></div>
-</div></div>
+</div>
+
+</div>
+<div class="blue-rows">
+    <div class="blue-row" id="all">All</div> 
+
+    <div  class="blue-row"id="notDone">Active</div> 
+    <div  class="blue-row" id="done">Completed</div> 
+   
+ </div>
+</div>
+
 <script src="index.js"></script>
 </body>
 </html>
