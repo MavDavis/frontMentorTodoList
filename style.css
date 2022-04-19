@@ -263,10 +263,10 @@ background-color: #fff;
         left: 5%;
     }
     form{
-        padding: 2rem 1rem 4rem 1rem;
+        padding: 2rem 1rem 5rem 1rem;
     }
     .heading{
-        padding-bottom: 1.5rem;
+        /* padding-bottom: 1.5rem; */
     }
 }
 @media(max-width:300px){
