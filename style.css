@@ -263,7 +263,7 @@ background-color: #fff;
         left: 5%;
     }
     form{
-        padding: 1rem 1rem 6rem 1rem;
+        padding: 2rem 1rem 4rem 1rem;
     }
 }
 @media(max-width:300px){
