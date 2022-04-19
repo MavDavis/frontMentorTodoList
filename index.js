@@ -5,8 +5,8 @@ let all =document.getElementById('all');
 let done = document.getElementById('done');
 let notDone = document.getElementById('notDone');
 let clearCompleted = document.getElementById('completed');
-let container = document.querySelector('.container');
-let mode =document.getElementById('mode');
+let container = document.getElementById('container');
+let mode = document.getElementById('mode');
 let modeFuse = document.getElementById('mode-fuse');
 
 
@@ -84,7 +84,9 @@ fetchList()
 
 function fetchList(e){
   let output= JSON.parse( localStorage.getItem('output'));
-  all.classList.add('blue')
+  all.classList.add('blue');
+  container.classList.add('dark-bg');
+  mode.classList.add('main-dark');
   let remlist = document.getElementById('remlist');
   
   let text ='';
@@ -108,7 +110,7 @@ function fetchList(e){
       `;
    removefromStorage(name)
     }
-checkDone()
+checkDone();
 }
 function removefromStorage(name){
 let del = document.getElementsByClassName('delete');
@@ -202,7 +204,7 @@ li[i].parentElement.remove();
 
  for(let i =0; i< storedList.length; i++){
   let storage =storedList[i];
-     console.log(li);
+     console.log(JSON.stringify(storage) + " cannot be cleared from storage, yet.");
      if(storage.name.classList.contains('opacity')){
     storedList.pop(i);
     localStorage.setItem('output',JSON.stringify( storedList))
@@ -211,11 +213,20 @@ li[i].parentElement.remove();
 }
 
 function switchMode(){
-  if(container.classList.contains('light-bg')){
-    container.classList.remove('light-bg');
-    container.classList.add('dark.bg');
+ 
+  if((container.classList.contains('dark-bg')) && (mode.classList.contains('main-dark'))){
+    container.classList.remove('dark-bg');
+    mode.classList.remove('main-dark');
+    container.classList.add('light-bg');
+    mode.classList.add('main-light');
+    console.log(container);
+    console.log(mode);
   }else{
-    container.classList.add('light-bg')
+    container.classList.remove('light-bg');
+    mode.classList.remove('main-light');
+    container.classList.add('dark-bg');
+    mode.classList.add('main-dark');
+
   }
 }
 
