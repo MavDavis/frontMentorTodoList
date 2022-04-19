@@ -272,6 +272,7 @@ background-color: #fff;
 .dark{
     width: 95%;
     left: 2.5%;
+    top: -.5rem;
 }
 .blue-rows, .row{
     flex-direction: column;
