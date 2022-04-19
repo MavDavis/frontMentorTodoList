@@ -254,10 +254,18 @@ background-color: #fff;
     }
     .light-bg{
         background-image: url(bg-mobile-light.jpg);
+        
+    }
+    .dark{
+        width: 80%;
+        left: 10%;
     }
 }
 @media(max-width:300px){
-
+.dark{
+    width: 90%;
+    left: 5%;
+}
 .blue-rows, .row{
     flex-direction: column;
     align-items: center;

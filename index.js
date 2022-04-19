@@ -48,8 +48,6 @@ alert('fill in the details..')
 }
 fetchList()
 } 
-
-
 function addToUi (event){
   event.preventDefault();
   if (event.key === "enter") {
@@ -81,7 +79,6 @@ document.getElementById('emptylist').style.display = 'none'
 fetchList()
 }
   }
-
 function fetchList(e){
   let output= JSON.parse( localStorage.getItem('output'));
   all.classList.add('blue');
@@ -96,21 +93,19 @@ function fetchList(e){
   ul.innerHTML=''
     for (var i = 0; i < output.length; i++){
       var li = output[i].name;
-      var time = output[i].time;
       ul.innerHTML+=`
-      <div class="list" >
+      <div draggable="true" class="list" >
       <li class="list-tag">
     <p><input class = "radio" type="radio" onclick=""> ${li}</p>
     <button class="delete" href="#">
     <img src ="icon-cross.svg" alt ="icon-times" class="times">
     </button>
-    
     </li>
-      </div>
-      `;
-   removefromStorage(name)
+    </div>`;
+  removefromStorage(name)
     }
 checkDone();
+dragAndDrop();
 }
 function removefromStorage(name){
 let del = document.getElementsByClassName('delete');
@@ -123,7 +118,6 @@ for(var i = 0; i<del.length; i++){
     if(confirm('do you wish to delete?')){
       
       let li = (e.target.parentElement.parentElement.parentElement.remove());
-    
       var storedList =  JSON.parse( localStorage.getItem('output'));
       for(var i =0; i< storedList.length; i++){
         if(storedList[i].name){
@@ -141,8 +135,8 @@ for(var i = 0; i<del.length; i++){
     }
   })
 
-}}
-
+}
+}
  function checkDone(){
  let radio =document.getElementsByClassName('radio');
 for(var i=0; i<radio.length; i++){
@@ -160,6 +154,7 @@ function showall(e){
   done.classList.remove('blue');
 let li = document.querySelectorAll('li');
 for(var i=0; i<li.length; i++){
+  console.log(li[i])
   li[i].parentElement.style.display='block'
 }
 }
@@ -211,7 +206,6 @@ li[i].parentElement.remove();
     }
    }
 }
-
 function switchMode(){
  
   if((container.classList.contains('dark-bg')) && (mode.classList.contains('main-dark'))){
@@ -230,3 +224,9 @@ function switchMode(){
   }
 }
 
+function dragAndDrop(index){
+  let li = document.querySelectorAll('li');
+for(var i=0; i<li.length; i++){
+ li[i].setAttribute('data-index', index)
+}
+}
