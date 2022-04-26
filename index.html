@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyTodoList</title>
  <link rel="stylesheet" href="style.css">
- <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bevacqua/dragula/dist/dragula.min.css">
+ <script src="https://cdn.jsdelivr.net/gh/bevacqua/dragula/dist/dragula.min.js"></script>
 </head>
 
 <body onload=" fetchList() ">
@@ -29,7 +29,7 @@
 </div>
 <div  id="mode">
 <div class="dark" id="list-items">
-    <ul class="ul" id="ul">
+    <ul class="ul  draggable-list" id="items">
     </ul>  
     <div class="rows">
         <!-- <div class="row">
@@ -53,6 +53,14 @@
  </div>
 </div>
 
+<!-- SortableJS CDN -->
+
+<scripy src =""></script>
+<script src="index.js"></script>
+</body>
+</html>
+
+</footer>
 <script src="index.js"></script>
 </body>
 </html>

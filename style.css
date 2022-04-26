@@ -101,6 +101,7 @@ height: 100%;
 border-bottom: 1px solid #ccc;
 box-sizing: border-box;
 list-style: none;
+cursor: pointer;
 margin-bottom: .6rem;
 padding: 1rem;
 }
@@ -125,6 +126,9 @@ cursor: pointer;
     position: relative;
     width: 100%;
     justify-content: space-between;
+}
+.over{
+    background-color: rgb(47, 45, 45);
 }
 .blue-rows{
     position: relative;

@@ -8,6 +8,8 @@ let clearCompleted = document.getElementById('completed');
 let container = document.getElementById('container');
 let mode = document.getElementById('mode');
 let modeFuse = document.getElementById('mode-fuse');
+// let dragStartIndex;
+let ul = document.getElementById('items');
 
 
 all.addEventListener('click', showall);
@@ -89,12 +91,12 @@ function fetchList(e){
   let text ='';
   text +="<p>"+ output.length+" items left </p>";
   remlist.innerHTML=text;
-  ul = document.getElementById('ul');
-  ul.innerHTML=''
+  ul = document.getElementById('items');
+  ul.innerHTML='';
     for (var i = 0; i < output.length; i++){
       var li = output[i].name;
       ul.innerHTML+=`
-      <div draggable="true" class="list" >
+      <div class="list list-group-item  dragthing" >
       <li class="list-tag">
     <p><input class = "radio" type="radio" onclick=""> ${li}</p>
     <button class="delete" href="#">
@@ -105,7 +107,7 @@ function fetchList(e){
   removefromStorage(name)
     }
 checkDone();
-dragAndDrop();
+init();
 }
 function removefromStorage(name){
 let del = document.getElementsByClassName('delete');
@@ -223,10 +225,6 @@ function switchMode(){
 
   }
 }
-
-function dragAndDrop(index){
-  let li = document.querySelectorAll('li');
-for(var i=0; i<li.length; i++){
- li[i].setAttribute('data-index', index)
-}
+function init(){
+  dragula([document.querySelector('#items')])
 }
